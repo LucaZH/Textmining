@@ -1,0 +1,70 @@
+:root {
+  --app-container: #f3f6fd;
+  --main-color: #1f1c2e;
+  --secondary-color: #4A4A4A;
+  --link-color: #1f1c2e;
+  --link-color-hover: #00b779;
+  --link-color-active: #fff;
+  --link-color-active-bg: #1f1c2e;
+  --main-section: #fff;
+  --message-box-hover: #fafcff;
+  --message-box-border: #e9ebf0;
+  --more-list-bg: #fff;
+  --more-list-bg-hover: #f6fbff;
+  --more-list-shadow: rgba(209, 209, 209, 0.4);
+  --button-bg: #1f1c24;
+  --search-area-bg: #fff;
+  --star: #1ff1c2e;
+  --message-btn: #fff;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  justify-content: center;
+  color: #124;
+  /* background-color: var(--app-container); */
+}
+.card{
+    width: 90%;
+    /* background-color: var(--main-section); */
+    padding: 3rem;
+    margin: 10px;
+    border-radius: 15px;
+}
+.tab{
+    /* text-align: center; */
+    /* padding */
+}
+td{
+    background-color: var(--message-box-border);
+    padding: 0.5rem;
+}
+th{
+    padding-bottom: 10px;
+    background-color: var(--app-container);
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.card-items{
+    display: flex;
+}
+.nb-card{
+    background-color: var(--link-color);
+    color: var(--app-container);
+    margin: 25px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    width: 95px;
+}
+.btn{
+    background-color: var(--link-color);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--app-container);
+    width: 80px;
+}
+.txt{
+    display: inline;
+}

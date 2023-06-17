@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static',filename='asset/styles.css')}}">
+</head>
+<body>
+    <section class="card">
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload" class="btn">
+        </form>
+        {% if content %}
+        <h2>Text </h2>
+        <p>{{ content['content']}}</p>
+        <div class="card-items">
+            <div class="nb-card">
+                
+                <p>{{ content['space'] }}</p>
+                <p>Espaces</p>
+            </div>
+            <div class="nb-card">
+                
+                <p>{{ content['word']}}</p>
+                <p>Mots</p>
+            </div>
+            <div class="nb-card">
+                
+                <p>{{ content['sentence']}}</p>
+                <p>Phrases</p>
+
+            </div>
+            
+        </div>
+        <h2>Mot clés</h2>
+        <table class="tab">
+            
+            <tr>
+                <th>Mots</th>
+                <th>Nombre d'occurence</th>
+                <th>Frequence</th>
+            </tr>
+            {% for c in content['keyword'] %}
+            <tr>
+                <td>{{ c['mot'] }}</td>
+                <td style="text-align: center;">{{ c['occurence'] }}</td>
+                <td>{{ c['frequence'] }} %</td>
+            </tr>
+            {% endfor%}
+        </table>        
+        {% endif%}
+    </section>
+</body>
+</html>

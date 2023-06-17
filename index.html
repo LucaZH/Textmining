@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevagehub</title>
+    <link rel="stylesheet" href="asset/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <div class="app-header-left">
+                <span class="app-icon"></span>
+                <p class="app-name">Elevage<strong>Hub</strong></p>
+            </div>
+            <div class="app-header-right">
+                <button class="profile-btn">
+                    <img src="./asset/Low_Poly.jpeg" alt="profile">
+                    <span>Profile</span>
+                </button>
+            </div>
+        </div>
+        <div class="app-content">
+            <div class="app-sidebar">
+                <a href="./index.html" class="app-sidebar-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <span>Accueil</span>
+                    </a>
+                <a href="" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <span>Animaux</span>
+                    </a>
+                <a href="./activity.html" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <span>Activite</span>
+                </a>
+                <a href="./activity.html" class="app-sidebar-link logout">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <span>Logout</span>
+                </a>
+            </div>
+            <div class="home-section">
+                <div class="home-content">
+                    <div style="max-width: 450px;">
+                        <h2 class="">Votre solution pour la gestion d'élevage</h2>
+                        <p class="">ElevageHub est une plateforme en ligne dédiée à l'élevage, offrant une gamme de fonctionnalités pour aider les éleveurs à gérer leur activité au quotidien. Avec ElevageHub, les éleveurs peuvent enregistrer les activités de leur élevage, gérer les croissances, suivre la croissance de leurs animaux.La plateforme est facile à utiliser et permet de garder une trace détaillée de l'historique de chaque animal, ce qui facilite la prise de décision pour les éleveurs.</p>
+                        <div style="margin-top: 35px;">
+                            <a class="btn" href="{% url 'mesanimaux' %}">Commencer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-image"><img class="fade-in img" src="./asset/Low_Poly.jpeg"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

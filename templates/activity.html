@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevagehub</title>
+    <link rel="stylesheet" href="asset/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <div class="app-header-left">
+                <span class="app-icon"></span>
+                <p class="app-name">Elevage<strong>Hub</strong></p>
+            </div>
+            <div class="app-header-right">
+                <button class="profile-btn">
+                    <img src="./asset/Low_Poly.jpeg" alt="profile">
+                    <span>Profile</span>
+                </button>
+            </div>
+        </div>
+        <div class="app-content">
+            <div class="app-sidebar">
+                <a href="./index.html" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <span>Accueil</span>
+                    </a>
+                <a href="./animaux.html" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <span>Animaux</span>
+                    </a>
+                <a href="./activity.html" class="app-sidebar-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                    <span>Activite</span>
+                </a>
+                <a href="./activity.html" class="app-sidebar-link logout">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <polyline points="9 22 9 12 15 12 15 22" /></svg>
+                  <span>Logout</span>
+                </a>
+            </div>
+            <div class="main-section">
+                <div class="main-section-header">
+                  <p>Mes activites</p>
+                </div>
+                <div class="main-section-line">
+                  <div class="main-status">
+                    <div class="item-status">
+                      <span class="status-number">45</span>
+                      <span class="status-type">En cours</span>
+                    </div>
+                    <div class="item-status">
+                      <span class="status-number">24</span>
+                      <span class="status-type">Fini</span>
+                    </div>
+                    <div class="item-status">
+                      <span class="status-number">62</span>
+                      <span class="status-type">Total</span>
+                    </div>
+                  </div>
+                  <div class="search-wrapper">
+                    <input type="text" class="search-input" placeholder="Search">
+                    <a href="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="view-actions">
+                    <button class="view-btn list-view" title="List View">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                        <line x1="8" y1="6" x2="21" y2="6" />
+                        <line x1="8" y1="12" x2="21" y2="12" />
+                        <line x1="8" y1="18" x2="21" y2="18" />
+                        <line x1="3" y1="6" x2="3.01" y2="6" />
+                        <line x1="3" y1="12" x2="3.01" y2="12" />
+                        <line x1="3" y1="18" x2="3.01" y2="18" /></svg>
+                    </button>
+                    <button class="view-btn grid-view active" title="Grid View">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" /></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="activities-section">
+                  <div class="activities-card">
+                    <div class="activities-card-header">
+                      <img src="./asset/Low_Poly.jpeg" alt="" class="activities-card-image">
+                    </div>
+                    <div class="activities-card-body">
+                        <div class="activities-card-tag">
+                          <span>11/10/2023</span>
+                          <span>En cours</span>
+                        </div>
+                        <h3>Titre</h3>
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+                    </div>
+                  </div>
+                  <div class="activities-card">
+                    <div class="activities-card-header">
+                      <img src="./asset/Low_Poly.jpeg" alt="" class="activities-card-image">
+                    </div>
+                    <div class="activities-card-body">
+                        <div class="activities-card-tag">
+                          <span>11/10/2023</span>
+                          <span>En cours</span>
+                        </div>
+                        <h3>Titre</h3>
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+                    </div>
+                  </div>
+                  <div class="activities-card">
+                    <div class="activities-card-header">
+                      <img src="./asset/Low_Poly.jpeg" alt="" class="activities-card-image">
+                    </div>
+                    <div class="activities-card-body">
+                        <div class="activities-card-tag">
+                          <span>11/10/2023</span>
+                          <span>En cours</span>
+                        </div>
+                        <h3>Titre</h3>
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+                    </div>
+                  </div>
+                  <div class="activities-card">
+                    <div class="activities-card-header">
+                      <img src="./asset/Low_Poly.jpeg" alt="" class="activities-card-image">
+                    </div>
+                    <div class="activities-card-body">
+                        <div class="activities-card-tag">
+                          <span>11/10/2023</span>
+                          <span>En cours</span>
+                        </div>
+                        <h3>Titre</h3>
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+                    </div>
+                  </div>
+                  <div class="activities-card-header">
+                    <img src="./asset/Low_Poly.jpeg" alt="" class="activities-card-image">
+                  </div>
+                  <div class="activities-card-body">
+                      <div class="activities-card-tag">
+                        <span>11/10/2023</span>
+                        <span>En cours</span>
+                      </div>
+                      <h3>Titre</h3>
+                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+                  </div>
+                </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
