@@ -1,4 +1,7 @@
 import re
+import spacy
+
+nlp = spacy.load("fr_core_news_md")
 
 ponctuation = re.compile(r'[^\w\s]')
 
@@ -6,20 +9,20 @@ def readfile(filename):
     with open(filename,encoding="utf-8") as f:
         return f.read()
 
-def countspace(content):
+def count_space(content):
     espace=0
     for element in content:
         if element==" ":
             espace+=1
     return espace
 
-def countcaractere(content):
+def count_caractere(content):
     caractere=0
     for element in content:
         caractere+=1
     return caractere
 
-def countword(content):
+def count_word(content):
     for ponct in ponctuation.findall(content):
         content = content.replace("'", "’")
         if ponct !="’":
@@ -38,7 +41,7 @@ def clean(content):
     
     return content.lower()
 
-def findkeyword(content,total):
+def find_keyword(content,total):
     cleancontents=content.split()
     with open("stopwords.txt" , encoding="utf-8") as stopwords:
         g=stopwords.read()
@@ -62,18 +65,19 @@ def findkeyword(content,total):
             nb=0
     return sorted(ocurence,key=lambda x:  x["occurence"],reverse=True)[:8]
 
-def getsentence(content):
-    # c = content.replace("\n"," ")
-    # splited = c.split(". ")
-    # print(splited)
-    splited = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s', content)
-
-    return len(splited)
-# def getparagraphe
-# content = readfile("file.txt")
-# print(f"Nombre de caractere : {countcaractere(content)}")
-# print(f"Nombre d'espace : {countspace(content)}")
-# print(f"Nombre de mots : {countword(content)}")
-# print(f"Mot clés : {findkeyword(clean(content))}")
-# print(getsentence(content))
+def count_paragraphs(content):
+    paragraphs = content.split("\n\n")
+    return len(paragraphs)
+def count_verbs(content):
+    doc = nlp(content)
+    verbs = [token for token in doc if token.pos_ == "VERB"]
+    return len(verbs)
+def ner(content):
+    doc = nlp(content)
+    entities = [(word, word.ent_iob_, word.ent_type_) for word in doc]
+    return entities
+def get_sentence(content):
+    doc = nlp(content)
+    sentences = list(doc.sents)
+    return len(sentences)
 

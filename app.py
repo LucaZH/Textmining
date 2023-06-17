@@ -5,35 +5,29 @@ app= Flask(__name__)
 def index():
     if request.method=="GET":
         content= "Inserer une phrase"
-        countedspace = countspace(content)
-        countedword= countword(content)
-        keyword = findkeyword(clean(content),countedword)
-        sentence = getsentence(content)
-        
         data = {
-            'space':countedspace,
             'content':content,
-            'word': countedword,
-            'keyword':keyword,
-            'sentence': sentence
-
+            'space':count_space(content),
+            'caractere':count_caractere(content),
+            'word':count_word(content),
+            'keyword':findkeyword(count_word()),
+            'sentence':get_sentence(content),
+            'paragraph':count_paragraphs(content),
+            'ner':ner(content),
         }
         return render_template('index.html',content=data)
     if request.method == 'POST':
         file=request.files['file']
         content = file.read().decode('utf-8')
-        countedspace = countspace(content)
-        countedword= countword(content)
-        keyword = findkeyword(clean(content),countedword)
-        sentence = getsentence(content)
-        
         data = {
-            'space':countedspace,
             'content':content,
-            'word': countedword,
-            'keyword':keyword,
-            'sentence': sentence
-
+            'space':count_space(content),
+            'caractere':count_caractere(content),
+            'word':count_word(content),
+            'keyword':find_keyword(content,count_word(content)),
+            'sentence':get_sentence(content),
+            'paragraph':count_paragraphs(content),
+            'ner':ner(content),
         }
         return render_template('index.html',content=data)
     return render_template('index.html',content=data)
