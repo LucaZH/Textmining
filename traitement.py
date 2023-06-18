@@ -1,6 +1,6 @@
 import re
 import spacy
-
+from collections import Counter
 nlp = spacy.load("fr_core_news_md")
 
 ponctuation = re.compile(r'[^\w\s]')
@@ -38,11 +38,10 @@ def clean(content):
         content= content.replace(ponct,"\spec+")
     content=content.replace("\n", "\spec+")
     content=content.replace("\spec+", " ")
-    
     return content.lower()
 
 def find_keyword(content,total):
-    cleancontents=content.split()
+    cleancontents=clean(content).split()
     with open("stopwords.txt" , encoding="utf-8") as stopwords:
         g=stopwords.read()
         nb=0
@@ -68,10 +67,18 @@ def find_keyword(content,total):
 def count_paragraphs(content):
     paragraphs = content.split("\n\n")
     return len(paragraphs)
-def count_verbs(content):
+
+def verbs(content):
     doc = nlp(content)
     verbs = [token for token in doc if token.pos_ == "VERB"]
-    return len(verbs)
+    return verbs
+
+def verb_occurence(content):
+    verb_list = verbs(content)
+    verb_occurence = Counter([verb.text.lower() for verb in verb_list])
+    return verb_occurence
+
+
 def ner(content):
     doc = nlp(content)
     entities = [(word, word.ent_iob_, word.ent_type_) for word in doc]

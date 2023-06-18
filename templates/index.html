@@ -2,58 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static',filename='asset/styles.css')}}">
+    <title>Analyseur de text</title>
 </head>
 <body>
-    <section class="card">
-        <form action="/" method="post" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <input type="submit" value="Upload" class="btn">
-        </form>
-        {% if content %}
-        <h2>Text </h2>
-        <p>{{ content['content']}}</p>
-        <div class="card-items">
-            <div class="nb-card">
+    <main>
+        <h1>Analyseur de text</h1>
+        <section class="upload-section">
+            <!-- <h2>Uploader un fichier</h2> -->
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="file">
+                <label for="file" class="upload-btn">Choisir un fichier text</label>
+                <input type="submit" value="Upload" class="submit-btn">
                 
-                <p>{{ content['space'] }}</p>
-                <p>Espaces</p>
+            </form>
+        </section>
+        <section class="analysis-section">
+            <h2>Resultats d'analyse</h2>
+            <div class="summary">
+                <div class="summary-item">
+                    <span>{{ content['caractere'] }}</span>
+                    <p>Caractères</p>
+                </div>
+                <div class="summary-item">
+                    <span>{{ content['space']}}</span>
+                    <p>Espaces</p>
+                </div>
+                <div class="summary-item">
+                    <span>{{ content['sentence'] }}</span>
+                    <p>Phrases</p>
+                </div>
+                <div class="summary-item">
+                    <span>{{ content['paragraph'] }}</span>
+                    <p>Paragraphes</p>
+                </div>
+                <div class="summary-item">
+                    <span>{{ content['nbverbs'] }}</span>
+                    <p>Verbes</p>
+                </div>
             </div>
-            <div class="nb-card">
-                
-                <p>{{ content['word']}}</p>
-                <p>Mots</p>
+            <h3>Text</h3>
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="PER"></span>
+                    <p>Personne</p>
+                </div>
+                <div class="legend-item">
+                    <span class="ORG"></span>
+                    <p>Organisation</p>
+                </div>
+                <div class="legend-item">
+                    <span class="LOC"></span>
+                    <p>Lieu</p>
+                </div>
+                <div class="legend-item">
+                    <span class="MISC"></span>
+                    <p>Divers</p>
+                </div>
             </div>
-            <div class="nb-card">
-                
-                <p>{{ content['sentence']}}</p>
-                <p>Phrases</p>
-
+            <div class="highlighted-text">
+                {{ content['highlighted_content']|safe }}
             </div>
-            
-        </div>
-        <h2>Mot clés</h2>
-        <table class="tab">
-            
-            <tr>
-                <th>Mots</th>
-                <th>Nombre d'occurence</th>
-                <th>Frequence</th>
-            </tr>
-            {% for c in content['keyword'] %}
-            <tr>
-                <td>{{ c['mot'] }}</td>
-                <td style="text-align: center;">{{ c['occurence'] }}</td>
-                <td>{{ c['frequence'] }} %</td>
-            </tr>
-            {% endfor%}
-        </table>        
-        {% endif%}
-    </section>
+            <h3>Mot clés</h3>
+            <table class="keywords-table">
+                <thead>
+                    <tr>
+                        <th>Mots</th>
+                        <th>Nombre d'occurence</th>
+                        <th>Frequence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in content['keyword'] %}
+                    <tr>
+                        <td>{{ c['mot'] }}</td>
+                        <td>{{ c['occurence'] }}</td>
+                        <td>{{ c['frequence'] }} %</td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+            <h3>Fréquence des verbes</h3>
+            <table class="keywords-table">
+                <thead>
+                    <tr>
+                        <th>Verbe</th>
+                        <th>Occurence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for verb, occurence in content['verb_occurence'].items() %}
+                    <tr>
+                        <td>{{ verb }}</td>
+                        <td>{{ occurence }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h3>Entités nommées</h3>
+            <table class="entities-table">
+                <thead>
+                    <tr>
+                        <th>Mot</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for word, iob, ent_type in content['ner'] %}
+                    {% if iob == "B" %}
+                    <tr>
+                        <td>{{ word.text }}</td>
+                        <td>{{ ent_type }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
 </body>
 </html>
